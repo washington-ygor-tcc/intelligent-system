@@ -4,8 +4,11 @@ services:
   api:
     restart: always
     build: 
-      context: ./api
+      context: .
+    environment:
+      - APPLICATION_TYPE=REST
     ports:
-        - 8000:8000
+      - 8000:8000
     volumes:
-        - ./api:/api
+      - ./:/src
+    entrypoint: ['uvicorn', 'src.main:application', '--reload', '--host', '0.0.0.0']
