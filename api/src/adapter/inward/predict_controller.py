@@ -1,12 +1,20 @@
 from typing import Dict
 from fastapi import APIRouter
 
-from common.src.port.inward.process_request_port import ProcessRequestPort
-from adapter.outward.predict_callback import predict_callback_router
-
+from common.src.adapter.outward.model_adapter import ModelAdapter
+from common.src.application.use_case.prediction_request_processor_use_case_sync import (
+    PredictionRequestProcessorSync,
+)
+from common.src.application.service.model_service import ModelService
 
 predict_router = APIRouter()
 
-@predict_router.post("/predict", callbacks=predict_callback_router.routes)
-def predict(commons, callback_url) -> Dict[str, str]:
-    commons.process_request()
+model = ModelAdapter()
+model_service = ModelService(model)
+prediction_processor = PredictionRequestProcessorSync(model_service)
+
+
+@predict_router.post("/predict")
+def predict() -> Dict[str, str]:
+    prediction = prediction_processor.process_request()
+    return prediction

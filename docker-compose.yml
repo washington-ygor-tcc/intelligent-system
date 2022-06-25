@@ -1,11 +1,16 @@
 version: '3.9'
 
 services:
-  api:
-    restart: always
-    build: 
-      context: ./api
+  # api:
+  #   restart: always
+  #   build:
+  #     context: ./api
+  #   ports:
+  #     - 8000:8000
+  #   volumes:
+  #     - ./api:/api
+  rabbitmq:
+    image: rabbitmq:management
     ports:
-        - 8000:8000
-    volumes:
-        - ./api:/api
+      - 5672:5672
+      - 15672:15672
