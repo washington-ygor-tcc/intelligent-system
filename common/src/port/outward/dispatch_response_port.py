@@ -2,5 +2,5 @@ from abc import ABC, abstractmethod
 
 class DispatchResponsePort(ABC):
   @abstractmethod
-  def dispatchResponse(self):
+  def dispatch_response(self):
     pass

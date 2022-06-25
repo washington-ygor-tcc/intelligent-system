@@ -2,5 +2,5 @@ from abc import ABC, abstractmethod
 
 class ProcessRequestPort(ABC):
   @abstractmethod
-  def processRequest(self):
+  def process_request(self):
     pass
