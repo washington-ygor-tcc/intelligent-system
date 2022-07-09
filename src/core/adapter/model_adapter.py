@@ -1,6 +1,6 @@
 import time
 
-from common.src.port.outward.model_port import ModelPort
+from src.core.port.model_port import ModelPort
 
 class ModelAdapter(ModelPort):
   def predict(self):

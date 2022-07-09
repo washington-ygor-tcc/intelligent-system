@@ -1,6 +1,6 @@
-FROM python:3.10.4-buster
+FROM python:3.10.5-buster
 
-WORKDIR /api
+WORKDIR /src
 
 ENV PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=off \
@@ -15,5 +15,3 @@ COPY pyproject.toml poetry.lock ./
 RUN poetry install  --no-interaction --no-ansi --no-root
 
 EXPOSE 8000
-
-CMD uvicorn src.main:app --reload --host 0.0.0.0

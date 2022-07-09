@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class ProcessRequestPort(ABC):
+class RequestHandlerPort(ABC):
   @abstractmethod
-  def process_request(self):
+  def handle(self):
     pass
