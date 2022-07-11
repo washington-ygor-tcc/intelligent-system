@@ -1,9 +1,10 @@
 from fastapi import FastAPI
-from src.applications.execution_strategy import ExecutionStrategy
+from src.applications.interfaces.entrypoint import Entrypoint
 from src.core.ports.prediction_request_handler_port import PredictionRequestHandlerPort
 from src.core.adapters.predict_controller import PredictController
 
-class RestAPI(ExecutionStrategy):
+
+class FastAPIEntrypoint(Entrypoint):
   def __init__(self, prediction_request_handler: PredictionRequestHandlerPort):
     self.__app = FastAPI()
 

@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends
 from src.core.ports.prediction_request_handler_port import PredictionRequestHandlerPort
-from src.core.adapters.dto.features_input import FeaturesInputDTO
+from src.core.adapters.dto.features import FeaturesRequestDTO
+
 
 class PredictController:
     def __init__(self, prediction_request_handler : PredictionRequestHandlerPort):
@@ -12,5 +13,5 @@ class PredictController:
     def router(self):
         return self.__router
 
-    def predict(self, input: FeaturesInputDTO):
+    def predict(self, feature_request: FeaturesRequestDTO):
         return self.__prediction_request_handler.handle()

@@ -11,4 +11,11 @@ services:
       - 8000:8000
     volumes:
       - ./:/src
-    entrypoint: ['uvicorn', 'src.main:application', '--reload', '--host', '0.0.0.0']
+    entrypoint: ['uvicorn', 'src.main:entrypoint', '--reload', '--host', '0.0.0.0']
+
+  broker:
+    restart: always
+    image: nats:2.8-alpine
+    ports:
+      - 4222:4222
+      - 8222:8222

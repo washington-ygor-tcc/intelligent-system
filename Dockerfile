@@ -14,4 +14,4 @@ COPY pyproject.toml poetry.lock ./
 
 RUN poetry install  --no-interaction --no-ansi --no-root
 
-EXPOSE 8000
+EXPOSE 8000 8001
