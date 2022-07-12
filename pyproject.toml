@@ -9,6 +9,7 @@ python = "3.10.5"
 fastapi = "0.78.0"
 uvicorn = "0.17.6"
 nats-py = "2.1.4"
+pyyaml = "6.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

@@ -10,7 +10,7 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ./:/src
+      - ./:/project
     entrypoint: ['uvicorn', 'src.main:entrypoint', '--reload', '--host', '0.0.0.0']
 
   broker:
@@ -19,3 +19,17 @@ services:
     ports:
       - 4222:4222
       - 8222:8222
+
+  messaging:
+    restart: always
+    build: 
+      context: .
+    depends_on:
+      - broker
+    environment:
+      - APPLICATION_TYPE=MESSAGING
+    ports:
+      - 8001:8001
+    volumes:
+      - ./:/project
+    entrypoint: ['python3', '-m', 'src.main']

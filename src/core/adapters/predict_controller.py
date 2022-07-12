@@ -4,7 +4,7 @@ from src.core.adapters.dto.features import FeaturesRequestDTO
 
 
 class PredictController:
-    def __init__(self, prediction_request_handler : PredictionRequestHandlerPort):
+    def __init__(self, prediction_request_handler: PredictionRequestHandlerPort):
         self.__prediction_request_handler = prediction_request_handler
         self.__router = APIRouter(prefix="/predict")
         self.__router.add_api_route("/", self.predict, methods=["POST"])
