@@ -7,4 +7,4 @@ class PredictMessageConsumer:
         self.__prediction_request_handler = prediction_request_handler
 
     def predict(self, feature_request: MessageRequestDTO):
-        return self.__prediction_request_handler.handle()
+        return self.__prediction_request_handler.handle(feature_request.features)
