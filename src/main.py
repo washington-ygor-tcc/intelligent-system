@@ -1,7 +1,7 @@
 import os
 
-from src.application.fastapi_factory import FastAPIFactory
-from src.application.nats_factory import NatsFactory
+from src.application.adapters.fastapi_factory import FastAPIFactory
+from src.application.adapters.nats_factory import NatsFactory
 
 
 class Main:

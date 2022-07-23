@@ -1,6 +1,5 @@
-from src.application.interfaces.application_factory import ApplicationFactory
-from src.core.adapters.predict_controller import PredictController
-from src.application.nats_entrypoint import NatsEntrypoint
+from src.application.ports.application_factory import ApplicationFactory
+from src.application.adapters.nats_entrypoint import NatsEntrypoint
 
 
 class NatsFactory(ApplicationFactory):
