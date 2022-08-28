@@ -47,11 +47,9 @@ class NatsEntrypoint(Entrypoint):
                         self.__prediction_response_channel, encoded_prediction
                     )
             except Exception as error:
-                print(error)
                 pass
 
     def __predict(self, feature_request: MessageRequestDTO):
-        print(feature_request)
         return self.__prediction_request_handler.handle(feature_request.features)
 
     def run(self):

@@ -2,3 +2,7 @@ nats:
   url: 'nats://broker:4222'
   request_channel: 'prediction_request_channel'
   response_channel: 'prediction_response_channel'
+mlflow:
+  server_uri: 'http://mlflow-server:5000'
+  model_uri: 'models:/PyFuncMockModel/1'
+  flavor: 'pyfunc'
