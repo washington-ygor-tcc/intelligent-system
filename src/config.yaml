@@ -5,4 +5,3 @@ nats:
 mlflow:
   server_uri: 'http://mlflow-server:5000'
   model_uri: 'models:/PyFuncMockModel/1'
-  flavor: 'pyfunc'
