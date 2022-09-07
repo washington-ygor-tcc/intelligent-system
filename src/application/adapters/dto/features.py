@@ -6,6 +6,6 @@ class FeaturesRequestDTO(BaseModel):
     features: Dict[str, Any] | None
 
 
-class MessageRequestDTO:
-    message_id: int
+class MessageRequestDTO(BaseModel):
+    request_id: str
     features: Dict[str, Any] | None

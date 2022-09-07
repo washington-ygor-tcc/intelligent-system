@@ -40,8 +40,14 @@ class NatsEntrypoint(Entrypoint):
 
             try:
                 async for message in subscription.messages:
-                    prediction = self.__predict(message.data.decode())
-                    encoded_prediction = json.dumps(prediction).encode("utf-8")
+                    data: Dict[str, Any] = json.loads(message.data)
+                    prediction_result = self.__predict(MessageRequestDTO(**data))
+                    encoded_prediction = json.dumps(
+                        {
+                            "request_id": data.get("request_id"),
+                            "prediction": prediction_result,
+                        }
+                    ).encode("utf-8")
 
                     await nats_connection.publish(
                         self.__prediction_response_channel, encoded_prediction
