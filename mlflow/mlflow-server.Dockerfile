@@ -10,6 +10,6 @@ ENV PYTHONUNBUFFERED=1 \
 
 RUN pip install "poetry==$POETRY_VERSION"
 
-COPY pyproject.toml poetry.lock ./
+COPY pyproject.toml poetry.lock log_pyfunc_model.py ./
 
 RUN poetry install  --no-interaction --no-ansi --no-root

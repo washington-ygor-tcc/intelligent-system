@@ -14,7 +14,7 @@ class FastAPIEntrypoint(Entrypoint):
 
         self.__app.include_router(predict_router)
 
-    def __predict(self, feature_request: FeaturesRequestDTO):
+    async def __predict(self, feature_request: FeaturesRequestDTO):
         return self.__prediction_request_handler.handle(feature_request.features)
 
     def run(self):
