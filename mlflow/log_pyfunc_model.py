@@ -14,6 +14,8 @@ class PyFuncMockModel(mlflow.pyfunc.PythonModel):
             A = np.random.uniform(low=-10, high=10, size=(self.dim, self.dim))
             b = np.random.uniform(low=-10, high=10, size=(self.dim,))
 
+            x = np.linalg.solve(A, b)
+
         return {"status": "OK"}
 
 
