@@ -6,15 +6,23 @@ import os
 class PyFuncMockModel(mlflow.pyfunc.PythonModel):
     def __init__(self):
         super().__init__()
-        self.dim = int(os.environ["LINEAR_SYSTEM_DIMENSION"])
 
     def predict(self, context, model_input):
+        complexity_factor = int(model_input["complexity_factor"])
+        memory_overhead = int(model_input["memory_overhead"])
 
-        for i in range(int(model_input["feature_size"])):
-            A = np.random.uniform(low=-10, high=10, size=(self.dim, self.dim))
-            b = np.random.uniform(low=-10, high=10, size=(self.dim,))
+        dummy_matrix = np.random.uniform(
+            low=-10, high=10, size=(memory_overhead, memory_overhead)
+        )
 
-            x = np.linalg.solve(A, b)
+        A = np.random.uniform(
+            low=-10, high=10, size=(complexity_factor, complexity_factor)
+        )
+        b = np.random.uniform(low=-10, high=10, size=(complexity_factor,))
+
+        x = np.linalg.solve(A, b)
+
+        dummy_trace = dummy_matrix.trace()
 
         return {"status": "OK"}
 
