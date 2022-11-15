@@ -128,3 +128,7 @@ services:
 volumes:
   dbdata:
   minio_data:
+
+networks:
+  intelligent-system:
+    driver: bridge
