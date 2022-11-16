@@ -22,8 +22,6 @@ class PyFuncMockModel(mlflow.pyfunc.PythonModel):
 
         x = np.linalg.solve(A, b)
 
-        dummy_trace = dummy_matrix.trace()
-
         return {"status": "OK"}
 
 
