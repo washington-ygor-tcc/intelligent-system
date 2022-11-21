@@ -10,7 +10,7 @@ class FastAPIEntrypoint(Entrypoint):
         self.__prediction_request_handler = prediction_request_handler
 
         predict_router = APIRouter(prefix="/predict")
-        predict_router.add_api_route("/", self.__predict, methods=["POST"])
+        predict_router.add_api_route("", self.__predict, methods=["POST"])
 
         self.__app.include_router(predict_router)
 
