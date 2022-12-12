@@ -11,9 +11,7 @@ class PyFuncMockModel(mlflow.pyfunc.PythonModel):
         complexity_factor = int(model_input["complexity_factor"])
         memory_overhead = int(model_input["memory_overhead"])
 
-        dummy_matrix = np.random.uniform(
-            low=-10, high=10, size=(memory_overhead, memory_overhead)
-        )
+        dummy_var = bytearray(1024 * 1024 * memory_overhead)
 
         A = np.random.uniform(
             low=-10, high=10, size=(complexity_factor, complexity_factor)
