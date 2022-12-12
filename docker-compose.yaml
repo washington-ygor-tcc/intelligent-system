@@ -18,7 +18,7 @@ services:
       - 8000:8000
     volumes:
       - ./:/project
-    entrypoint: ['uvicorn', 'src.main:entrypoint', '--reload', '--host', '0.0.0.0']
+    entrypoint: ['uvicorn', 'src.main:entrypoint', '--host', '0.0.0.0']
 
   broker:
     restart: always
